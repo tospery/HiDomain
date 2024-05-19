@@ -1,4 +1,4 @@
-# HiDomain
+# HiDomain: UI-Independent base library for defining model layers
 
 [![CI Status](https://img.shields.io/travis/tospery/HiDomain.svg?style=flat)](https://travis-ci.org/tospery/HiDomain)
 [![Version](https://img.shields.io/cocoapods/v/HiDomain.svg?style=flat)](https://cocoapods.org/pods/HiDomain)

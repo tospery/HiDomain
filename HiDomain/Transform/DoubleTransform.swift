@@ -7,6 +7,7 @@
 
 import Foundation
 import ObjectMapper
+import SwifterSwift
 
 /// Transforms value of type Any to Double. Tries to typecast if possible.
 public class DoubleTransform: TransformType {
@@ -16,22 +17,7 @@ public class DoubleTransform: TransformType {
     private init() {}
     
     public func transformFromJSON(_ value: Any?) -> Object? {
-        if value == nil {
-            return nil
-        } else if let double = value as? Double {
-            return double
-        } else if let int = value as? Int {
-            return Double(int)
-        } else if let bool = value as? Bool {
-            return (bool ? 1.0 : 0.0)
-        } else if let string = value as? String {
-            return Double.safeFrom(string)
-        } else if let number = value as? NSNumber {
-            return number.doubleValue
-        } else {
-            print("Can not cast value of type \(type(of: value!)) to type \(Object.self): \ndata = \(["value": value])")
-            return nil
-        }
+        tryDouble(value)
     }
     
     public func transformToJSON(_ value: Object?) -> JSON? {

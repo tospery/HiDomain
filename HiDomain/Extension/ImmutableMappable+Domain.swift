@@ -1,15 +1,14 @@
 //
-//  ImmutableMappable+Create.swift
-//  HiIOS
+//  ImmutableMappable+Domain.swift
+//  HiDomain
 //
-//  Created by 杨建祥 on 2024/5/13.
+//  Created by 杨建祥 on 2024/5/20.
 //
 
 import Foundation
 import ObjectMapper
 
 // ******************************* MARK: - From data
-
 public extension ImmutableMappable {
     
     /// Creates model from JSON string.
@@ -17,11 +16,10 @@ public extension ImmutableMappable {
     /// - throws: `MappingError.emptyData` if response data is empty.
     /// - throws: `MappingError.invalidJSON` if response isn't a valid JSON.
     /// - throws: `MappingError.unknownType` if it wasn't possible to create model.
-    static func create(jsonData: Data?, file: String = #file, function: String = #function, line: UInt = #line) throws -> Self {
+    static func create(jsonData: Data?) throws -> Self {
         guard let jsonData = jsonData, !jsonData.isEmpty else {
             throw MappingError.emptyData
         }
-        
         
         // Start check
         guard jsonData.firstNonWhitespaceByte == ASCIICodes.openCurlyBracket else {
@@ -33,7 +31,7 @@ public extension ImmutableMappable {
             throw MappingError.invalidJSON(message: "JSON object should end with the '}' character")
         }
         
-        guard let jsonObject = jsonData.safeSerializeToJSON(file: file, function: function, line: line) else {
+        guard let jsonObject = jsonData.safeSerializeToJSON() else {
             throw MappingError.invalidJSON(message: "Unable to serialize JSON object from the data")
         }
         
@@ -48,7 +46,7 @@ public extension ImmutableMappable {
     
     /// Create model from JSON string. Report error and return nil if unable.
     /// - parameter jsonData: Data in JSON format to use for model creation.
-    static func safeCreate(jsonData: Data?, file: String = #file, function: String = #function, line: UInt = #line) -> Self? {
+    static func safeCreate(jsonData: Data?) -> Self? {
         do {
             return try create(jsonData: jsonData)
         } catch {
@@ -59,7 +57,6 @@ public extension ImmutableMappable {
 }
 
 // ******************************* MARK: - From string
-
 public extension ImmutableMappable {
     
     /// Creates model from JSON string.
@@ -67,7 +64,7 @@ public extension ImmutableMappable {
     /// - throws: `MappingError.emptyData` if response data is empty.
     /// - throws: `MappingError.invalidJSON` if response isn't a valid JSON.
     /// - throws: Any other error that model may emmit during initialization.
-    static func create(jsonString: String?, file: String = #file, function: String = #function, line: UInt = #line) throws -> Self {
+    static func create(jsonString: String?) throws -> Self {
         guard let jsonString = jsonString else {
             throw MappingError.emptyData
         }
@@ -93,7 +90,7 @@ public extension ImmutableMappable {
     
     /// Create model from JSON string. Report error and return nil if unable.
     /// - parameter jsonString: String in JSON format to use for model creation.
-    static func safeCreate(jsonString: String?, file: String = #file, function: String = #function, line: UInt = #line) -> Self? {
+    static func safeCreate(jsonString: String?) -> Self? {
         do {
             return try create(jsonString: jsonString)
         } catch {

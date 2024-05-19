@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'HiDomain'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'Domain layer.'
   s.description      = <<-DESC
 						Domain layer using Swift.
@@ -17,5 +17,7 @@ Pod::Spec.new do |s|
   
   s.source_files = 'HiDomain/**/*'
   s.dependency 'ObjectMapper', '~> 4.0'
+  s.dependency 'SwifterSwift/SwiftStdlib', '~> 6.0'
+  s.dependency 'SwifterSwift/Foundation', '~> 6.0'
   
 end

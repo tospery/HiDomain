@@ -1,15 +1,14 @@
 //
-//  Data+Extension.swift
-//  HiIOS
+//  Data+Domain.swift
+//  HiDomain
 //
-//  Created by 杨建祥 on 2024/5/13.
+//  Created by 杨建祥 on 2024/5/20.
 //
 
 import Foundation
+import ObjectMapper
 
 extension Data {
-    
-    // ******************************* MARK: - As
     
     /// Get HEX string from data. Can be used for sending APNS token to backend.
     var hexString: String {
@@ -35,7 +34,7 @@ extension Data {
     }
     
     /// Try to serialize `self` to JSON object and report error if unable.
-    func safeSerializeToJSON(file: String = #file, function: String = #function, line: UInt = #line) -> Any? {
+    func safeSerializeToJSON() -> Any? {
         do {
             return try JSONSerialization.jsonObject(with: self, options: .allowFragments)
         } catch {
@@ -45,7 +44,6 @@ extension Data {
     }
     
     // ******************************* MARK: - Checks
-    
     var firstNonWhitespaceByte: UInt8? {
         guard let index = firstIndex(where: { $0 != ASCIICodes.space && $0 != ASCIICodes.newLine }) else { return nil }
         return self[index]
@@ -68,4 +66,6 @@ extension Data {
         
         return self[index - 1]
     }
+    
 }
+

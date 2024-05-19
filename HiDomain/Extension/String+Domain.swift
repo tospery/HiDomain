@@ -1,12 +1,13 @@
 //
-//  String+Extension.swift
-//  HiIOS
+//  String+Domain.swift
+//  HiDomain
 //
-//  Created by 杨建祥 on 2024/5/13.
+//  Created by 杨建祥 on 2024/5/20.
 //
+
+import Foundation
 
 // ******************************* MARK: - Checks
-
 private let kSpaceCharacter = Character(" ")
 private let kNewLineCharacter = Character("\n")
 
@@ -14,6 +15,32 @@ extension String {
     
     var isNil: Bool {
         isEmpty || self == "-"
+    }
+    
+    var safeDouble: Double? {
+        if self.isNil {
+            return nil
+        }
+        return Double(self)
+    }
+    
+    var safeInt: Int? {
+        if self.isNil {
+            return nil
+        }
+        if let int = self.int {
+            return int
+        } else if let double = self.safeDouble {
+            return double.safeInt
+        }
+        return nil
+    }
+    
+    var safeBool: Bool? {
+        if self.isNil {
+            return nil
+        }
+        return self.bool
     }
     
     var firstNonWhitespaceCharacter: Character? {
@@ -43,12 +70,6 @@ extension String {
         
         return self[beforeLastIndex]
     }
-}
-
-
-// ******************************* MARK: - Other
-
-extension String {
     
     /// Returns fileName without extension
     var fileName: String {
@@ -62,4 +83,5 @@ extension String {
             return components.joined(separator: ".")
         }
     }
+    
 }

@@ -1,16 +1,25 @@
 //
-//  StringProtocol+Extension.swift
-//  HiIOS
+//  StringProtocol+Domain.swift
+//  HiDomain
 //
-//  Created by 杨建祥 on 2024/5/13.
+//  Created by 杨建祥 on 2024/5/20.
 //
 
 import Foundation
 
 extension StringProtocol {
     
+    /// Returns `self` as `String`
+    var asString: String {
+        if let string = self as? String {
+            return string
+        } else {
+            return String(self)
+        }
+    }
+    
     /// Returns `self` as `Bool` if conversion is possible.
-    var asBool: Bool? {
+    var forceBool: Bool? {
         if let bool = Bool(asString) {
             return bool
         }
@@ -22,12 +31,4 @@ extension StringProtocol {
         }
     }
     
-    /// Returns `self` as `String`
-    var asString: String {
-        if let string = self as? String {
-            return string
-        } else {
-            return String(self)
-        }
-    }
 }
