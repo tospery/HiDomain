@@ -16,6 +16,6 @@ Pod::Spec.new do |s|
   s.frameworks = 'Foundation'
   
   s.source_files = 'HiDomain/**/*'
-  s.dependency 'ObjectMapper', '4.4.2'
+  s.dependency 'ObjectMapper', '~> 4.0'
   
 end
