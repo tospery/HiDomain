@@ -11,7 +11,7 @@ import Foundation
 private let kSpaceCharacter = Character(" ")
 private let kNewLineCharacter = Character("\n")
 
-extension String {
+public extension String {
     
     var isNil: Bool {
         isEmpty || self == "-"

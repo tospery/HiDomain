@@ -72,7 +72,7 @@ public func tryString(_ value: Any?) -> String? {
     return nil
 }
 
-func tryType<T>(value: Any?, type: T.Type) -> T? {
+public func tryType<T>(value: Any?, type: T.Type) -> T? {
     guard let value = value else { return nil }
     if let value = value as? T {
         return value
@@ -88,7 +88,7 @@ func tryType<T>(value: Any?, type: T.Type) -> T? {
     return nil
 }
 
-func tryEnum<T: RawRepresentable>(value: Any?, type: T.Type) -> T? {
+public func tryEnum<T: RawRepresentable>(value: Any?, type: T.Type) -> T? {
     guard let value = value else { return nil }
     if let value = value as? T.RawValue {
         return T(rawValue: value)

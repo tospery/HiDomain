@@ -8,7 +8,7 @@
 import Foundation
 import ObjectMapper
 
-extension Data {
+public extension Data {
     
     /// Get HEX string from data. Can be used for sending APNS token to backend.
     var hexString: String {

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'HiDomain'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'Domain layer.'
   s.description      = <<-DESC
 						Domain layer using Swift.

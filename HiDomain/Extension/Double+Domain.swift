@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Double {
+public extension Double {
     
     var bool: Bool {
         return self != 0

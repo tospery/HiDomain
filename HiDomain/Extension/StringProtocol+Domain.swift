@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension StringProtocol {
+public extension StringProtocol {
     
     /// Returns `self` as `String`
     var asString: String {

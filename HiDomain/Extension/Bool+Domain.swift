@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Bool {
+public extension Bool {
     
     var double: Double {
         (self ? 1.0 : 0.0)
