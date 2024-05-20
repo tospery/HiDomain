@@ -7,6 +7,9 @@
 
 import Foundation
 
+public protocol ServiceProvider {
+}
+
 public enum MappingError: Error {
     case emptyData
     case invalidJSON(message: String)

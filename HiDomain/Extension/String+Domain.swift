@@ -13,9 +13,9 @@ private let kNewLineCharacter = Character("\n")
 
 public extension String {
     
-    var isNil: Bool {
-        isEmpty || self == "-"
-    }
+    var isNil: Bool { isEmpty || self == "-" }
+    
+    var isNotEmpty: Bool { !isEmpty }
     
     var safeDouble: Double? {
         if self.isNil {
