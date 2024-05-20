@@ -7,8 +7,8 @@
 
 import Foundation
 
-public protocol ServiceProvider {
-}
+public protocol ServiceProvider { }
+public protocol ProviderProtocol { }
 
 public enum MappingError: Error {
     case emptyData
