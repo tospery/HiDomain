@@ -46,11 +46,11 @@ public extension ModelType {
 //    var avatar: String? { get }
 //}
 //
-//public protocol ConfigurationType: ModelType {
+//public protocol CurrentType: ModelType {
 //    var user: (any UserType)? { get }
 //}
 
-public protocol ConfigurationType: ModelType {
+public protocol CurrentType: ModelType {
     var didUserLogined: Bool { get }
 }
 
