@@ -46,7 +46,7 @@ public protocol UserType: ModelType {
     var avatar: String? { get }
 }
 
-public protocol CurrentType: ModelType {
+public protocol ProfileType: ModelType {
     var loginedUser: (any UserType)? { get set }
 }
 
