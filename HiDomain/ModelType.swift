@@ -40,14 +40,18 @@ public extension ModelType {
 
 }
 
-public protocol UserType: ModelType {
-    var username: String? { get }
-    var nickname: String? { get }
-    var avatar: String? { get }
-}
+//public protocol UserType: ModelType {
+//    var username: String? { get }
+//    var nickname: String? { get }
+//    var avatar: String? { get }
+//}
+//
+//public protocol ConfigurationType: ModelType {
+//    var user: (any UserType)? { get }
+//}
 
 public protocol ConfigurationType: ModelType {
-    var user: (any UserType)? { get }
+    var didUserLogined: Bool { get }
 }
 
 public struct WrappedModel: ModelType {
