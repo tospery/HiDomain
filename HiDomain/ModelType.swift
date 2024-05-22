@@ -32,13 +32,7 @@ public extension ModelType {
     
     var debugDescription: String { self.toJSONString() ?? self.id.hashValue.string }
     
-//    func hash(into hasher: inout Hasher) {
-//        hasher.combine(id)
-//    }
-//    
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.id == rhs.id
-    }
+    static func == (lhs: Self, rhs: Self) -> Bool { lhs.id == rhs.id }
 
 }
 
