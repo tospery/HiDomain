@@ -28,7 +28,7 @@ public extension ModelType {
         return false
     }
     
-    var description: String { self.id.hashValue.string }
+    var description: String { self.toJSONString() ?? self.id.hashValue.string }
     
     var debugDescription: String { self.toJSONString() ?? self.id.hashValue.string }
     
