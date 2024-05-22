@@ -9,7 +9,7 @@ import Foundation
 import ObjectMapper
 import SwifterSwift
 
-public protocol ModelType: Identifiable, Codable, Hashable, CustomStringConvertible, Mappable {
+public protocol ModelType: Mappable, Identifiable, Codable, Equatable, CustomStringConvertible, CustomDebugStringConvertible {
     var isValid: Bool { get }
     init()
 }
@@ -28,14 +28,16 @@ public extension ModelType {
         return false
     }
     
-    var description: String { self.toJSONString() ?? String(describing: self.id.hashValue) }
+    var description: String { self.id.hashValue.string }
     
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
+    var debugDescription: String { self.toJSONString() ?? self.id.hashValue.string }
     
+//    func hash(into hasher: inout Hasher) {
+//        hasher.combine(id)
+//    }
+//    
     static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.hashValue == rhs.hashValue
+        lhs.id == rhs.id
     }
 
 }
