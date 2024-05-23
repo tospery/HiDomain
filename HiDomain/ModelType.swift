@@ -43,6 +43,7 @@ public protocol UserType: ModelType {
 }
 
 public protocol ProfileType: ModelType {
+    var localization: Localization? { get set }
     var loginedUser: (any UserType)? { get set }
 }
 

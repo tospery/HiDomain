@@ -10,6 +10,15 @@ import Foundation
 public protocol ServiceProvider { }
 public protocol ProviderProtocol { }
 
+public enum Localization: String, Codable {
+    case chinese    = "zh-Hans"
+    case english    = "en"
+    
+    public static let allValues = [chinese, english]
+    
+    public var preferredLanguages: [String] { [self.rawValue] }
+}
+
 public enum MappingError: Error {
     case emptyData
     case invalidJSON(message: String)
